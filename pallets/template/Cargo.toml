@@ -26,6 +26,8 @@ frame-system.workspace = true
 pallet-farcaster_frame = { default-features = false, workspace = true}
 
 [dev-dependencies]
+base64 = "0.22.1"
+hex-literal = "0.4.1"
 sp-core = { default-features = true, workspace = true }
 sp-io = { default-features = true, workspace = true }
 sp-runtime = { default-features = true, workspace = true }

@@ -6085,9 +6085,11 @@ dependencies = [
 name = "pallet-template"
 version = "0.1.0"
 dependencies = [
+ "base64 0.22.1",
  "frame-benchmarking",
  "frame-support",
  "frame-system",
+ "hex-literal",
  "pallet-farcaster_frame",
  "parity-scale-codec",
  "scale-info",
