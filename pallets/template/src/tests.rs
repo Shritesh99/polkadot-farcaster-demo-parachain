@@ -1,5 +1,6 @@
 use crate::{mock::*, Error, Event, Something};
 use base64::prelude::*;
+use codec::Encode;
 use frame_support::{assert_noop, assert_ok};
 use hex_literal::hex;
 use pallet_farcaster_frame::message::*;
@@ -68,7 +69,7 @@ fn it_works_for_parsing_message() {
     let message = generate_message();
     // Encode the message to a raw vector.
     let raw = message.encode();
-	
+
     new_test_ext().execute_with(|| {
         // Go past genesis block so events get deposited
         System::set_block_number(1);

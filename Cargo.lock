@@ -6006,12 +6006,10 @@ dependencies = [
 
 [[package]]
 name = "pallet-farcaster_frame"
-version = "0.0.4"
+version = "0.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ceafb1281db8fe2148eb3332ff524c3279fca3831328a6ec1ac5e9de032fd50f"
+checksum = "9dd21cd4046aa81de4dd2df61861b2c075b993ee79bfabae74af4ebc1ac54c47"
 dependencies = [
- "frame-support",
- "frame-system",
  "parity-scale-codec",
  "prost 0.13.5",
  "prost-build",

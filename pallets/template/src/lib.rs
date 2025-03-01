@@ -18,7 +18,7 @@ pub mod pallet {
     use super::*;
     use frame_support::pallet_prelude::*;
     use frame_system::pallet_prelude::*;
-    use pallet_farcaster_frame::pallet_farcaster;
+    use pallet_farcaster_frame::{encode_message, parse_message};
     use sp_std::vec::Vec;
 
     #[pallet::pallet]
@@ -52,8 +52,7 @@ pub mod pallet {
         pub fn parse_message(origin: OriginFor<T>, raw: Vec<u8>) -> DispatchResult {
             let who = ensure_signed(origin)?;
 
-            let _msg =
-                pallet_farcaster::parse_message(raw).map_err(|_| Error::<T>::InvalidProtobuf)?;
+            let _msg = parse_message(raw).map_err(|_| Error::<T>::InvalidProtobuf)?;
             Ok(())
         }
 
@@ -61,8 +60,7 @@ pub mod pallet {
         #[pallet::weight(T::WeightInfo::cause_error())]
         pub fn cause_error(origin: OriginFor<T>) -> DispatchResult {
             let who = ensure_signed(origin)?;
-            let _msg = pallet_farcaster::parse_message(Vec::new())
-                .map_err(|_| Error::<T>::InvalidProtobuf)?;
+            let _msg = parse_message(Vec::new()).map_err(|_| Error::<T>::InvalidProtobuf)?;
             Ok(())
         }
     }
